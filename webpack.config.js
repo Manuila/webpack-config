@@ -2,6 +2,7 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 
@@ -10,6 +11,11 @@ const config = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
+  },
+  optimization: {
+    minimizer: [
+      new OptimizeCssAssetsPlugin({}),
+    ],
   },
   module: {
     rules: [
@@ -25,7 +31,6 @@ const config = {
           {
             loader: 'css-loader',
             options: {
-              minimize: true,
               sourceMap: true,
             },
           },
@@ -74,6 +79,7 @@ const config = {
     }),
   ],
   devServer: {
+    contentBase: path.join(__dirname, 'dist'),
     open: true,
     progress: true,
     port: 8001,
