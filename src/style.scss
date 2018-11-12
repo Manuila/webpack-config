@@ -1,8 +1,9 @@
 .class {
-  &_green{
+  &_green {
     color: green;
   }
 }
+
 div {
   border: 1px solid black;
   background-color: lightblue;
@@ -10,4 +11,8 @@ div {
   padding-right: 30px;
   padding-bottom: 50px;
   padding-left: 80px;
+}
+
+html {
+  color: red;
 }
