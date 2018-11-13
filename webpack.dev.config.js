@@ -20,10 +20,16 @@ const devConfig = {
         test: /\.scss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          'css-loader?sourceMap',
           {
-            loader: 'postcss-loader?sourceMap',
+            loader: 'css-loader',
             options: {
+              sourceMap: true,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              sourceMap: true,
               plugins: [
                 autoprefixer({
                   browsers: ['ie >= 8', 'last 4 version'],
@@ -31,14 +37,20 @@ const devConfig = {
               ],
             },
           },
-          'sass-loader?sourceMap',
+          {
+            loader: 'sass-loader',
+            options: {
+              sourceMap: true,
+            },
+          },
         ],
       },
       {
         test: /\.(png|jpg|gif)$/,
-        use: [{
-          loader: 'file-loader?name=images/[name].[ext]',
-        }],
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name].[hash].[ext]',
+        },
       },
     ],
   },

@@ -42,7 +42,7 @@ const prodConfig = {
       {
         test: /\.(png|jpg|gif)$/,
         use: [
-          'file-loader?name=images/[name].[ext]',
+          'file-loader?name=images/[name].[hash].[ext]',
           {
             loader: 'image-webpack-loader',
             options: {
