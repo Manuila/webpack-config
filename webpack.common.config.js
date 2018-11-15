@@ -34,6 +34,7 @@ const commonConfig = {
         loader: 'file-loader',
         options: {
           name: 'media/[name].[hash].[ext]',
+          limit: 10000,
         },
       },
     ],

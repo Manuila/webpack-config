@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer');
 const merge = require('webpack-merge');
+const webpack = require('webpack');
 const commonConfig = require('./webpack.common.config');
 
 const devConfig = {
@@ -13,6 +14,7 @@ const devConfig = {
     open: true,
     progress: true,
     port: 8000,
+    hot: true,
   },
   module: {
     rules: [
@@ -46,7 +48,7 @@ const devConfig = {
         ],
       },
       {
-        test: /\.(png|jpg|gif)$/,
+        test: /\.(png|jpeg|gif)$/,
         loader: 'file-loader',
         options: {
           name: 'images/[name].[hash].[ext]',
@@ -61,6 +63,7 @@ const devConfig = {
     new MiniCssExtractPlugin({
       filename: 'css/style.css',
     }),
+    new webpack.HotModuleReplacementPlugin(),
   ],
 };
 
