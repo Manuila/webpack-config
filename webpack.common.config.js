@@ -26,10 +26,23 @@ const commonConfig = {
       },
       {
         test: /\.svg$/,
-        loader: 'svg-sprite-loader',
-        options: {
-          symbolId: 'icon-[name]',
-        },
+        use: [
+          {
+            loader: 'svg-sprite-loader',
+            options: {
+              symbolId: 'icon-[name].[hash]',
+            },
+          },
+          {
+            loader: 'svgo-loader',
+            options: {
+              plugins: [
+                { removeTitle: true },
+                { removeComments: true },
+              ],
+            },
+          },
+        ],
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
@@ -41,7 +54,7 @@ const commonConfig = {
         },
       },
       {
-        test: /\.(png|jpeg|gif)$/,
+        test: /\.(png|jpe?g|gif)$/,
         loader: 'file-loader',
         options: {
           name: 'images/[name].[hash].[ext]',
