@@ -47,17 +47,11 @@ const devConfig = {
           },
         ],
       },
-      {
-        test: /\.(png|jpeg|gif)$/,
-        loader: 'file-loader',
-        options: {
-          name: 'images/[name].[hash].[ext]',
-        },
-      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
+      template: './src/index.html',
       filename: 'index.html',
     }),
     new MiniCssExtractPlugin({

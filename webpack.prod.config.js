@@ -1,3 +1,4 @@
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
@@ -41,35 +42,33 @@ const prodConfig = {
       },
       {
         test: /\.(png|jpg|gif)$/,
-        use: [
-          'file-loader?name=images/[name].[hash].[ext]',
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                quality: 65,
-              },
-              optipng: {
-                optimizationLevel: 7,
-              },
-              pngquant: {
-                quality: '65-90',
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-            },
+        loader: 'image-webpack-loader',
+        options: {
+          mozjpeg: {
+            quality: 65,
           },
-        ],
+          optipng: {
+            optimizationLevel: 7,
+          },
+          pngquant: {
+            quality: '65-90',
+          },
+          gifsicle: {
+            interlaced: false,
+          },
+        },
       },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       hash: true,
+      template: './src/index.html',
       filename: 'index.html',
       minify: {
+        collapseWhitespace: true,
         removeComments: true,
+        removeRedundantAttributes: true,
       },
     }),
     new MiniCssExtractPlugin({

@@ -2,8 +2,9 @@ const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 
+
 const commonConfig = {
-  entry: './src/index.js',
+  entry: ['@babel/polyfill', './src/index.js'],
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -20,6 +21,7 @@ const commonConfig = {
         loader: 'file-loader',
         options: {
           name: 'fonts/[name].[hash].[ext]',
+          publicPath: path.join('..'),
         },
       },
       {
@@ -34,7 +36,16 @@ const commonConfig = {
         loader: 'file-loader',
         options: {
           name: 'media/[name].[hash].[ext]',
+          publicPath: path.join('..'),
           limit: 10000,
+        },
+      },
+      {
+        test: /\.(png|jpeg|gif)$/,
+        loader: 'file-loader',
+        options: {
+          name: 'images/[name].[hash].[ext]',
+          publicPath: path.join('..'),
         },
       },
     ],
