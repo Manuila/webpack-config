@@ -21,10 +21,14 @@
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/plugin-proposal-decorators": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-typescript": "^7.1.0",
     "@types/node": "^10.12.0",
-    "angular2-template-loader": "^0.6.2",
     "autoprefixer": "^9.3.1",
-    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.0.4",
     "clean-webpack-plugin": "^1.0.0",
     "css-loader": "^1.0.1",
     "file-loader": "^2.0.0",

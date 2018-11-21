@@ -4,7 +4,7 @@ const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const webpack = require('webpack');
 
 const commonConfig = {
-  entry: ['./src/polyfills.ts', './src/main.ts'],
+  entry: './src/main.ts',
   output: {
     path: path.resolve(__dirname, '../dist'),
     filename: 'bundle.js',
@@ -16,14 +16,11 @@ const commonConfig = {
     rules: [ 
       {
         test: /\.ts$/,
-        use: [
-         {
-             loader: 'awesome-typescript-loader',
-             options: { configFileName: path.resolve(__dirname, '../tsconfig.json') }
-           } ,
-            'angular2-template-loader'
-        ]
-     },
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader'
+        }
+      },
       {
         test: /\.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
         loader: 'file-loader',
