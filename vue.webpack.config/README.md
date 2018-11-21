@@ -1,1 +1,1 @@
-# webpack-base-config
+# vue.webpack.config

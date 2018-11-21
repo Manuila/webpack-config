@@ -1,1 +1,1 @@
-# webpack-base-config
+# base.webpack.config
