@@ -1,0 +1,7 @@
+{
+  "extends": ["tslint-angular"],
+  "rules": {
+    "directive-selector-name": [true, "camelCase"],
+    "component-selector-name": [true, "kebab-case"]
+  }
+}

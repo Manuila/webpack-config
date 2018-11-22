@@ -16,6 +16,7 @@ const prodConfig = {
         cache: true,
         parallel: true,
         sourceMap: true,
+        extractComments: true,
       }),
       new OptimizeCssAssetsPlugin({}),
     ],
