@@ -1,8 +1,7 @@
 {
-  "name": "webpack-config",
+  "name": "base.webpack.config",
   "version": "1.0.0",
-  "description": "webpack config",
-  "main": "index.js",
+  "description": "",
   "scripts": {
     "dev": "webpack --config ./webpack.config/webpack.dev.config.js",
     "build": "webpack --config ./webpack.config/webpack.prod.config.js",

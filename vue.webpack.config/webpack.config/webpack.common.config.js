@@ -9,6 +9,9 @@ const commonConfig = {
     path: path.resolve(__dirname, '../dist'),
     filename: 'bundle.js',
   },
+  resolve: {
+    extensions: ['.js', '.vue'],
+  },
   module: {
     rules: [
       {

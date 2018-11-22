@@ -1,8 +1,7 @@
 {
-  "name": "client",
+  "name": "base.webpack.config",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "webpack --config ./webpack.config/webpack.dev.config.js",
     "build": "webpack --config ./webpack.config/webpack.prod.config.js",

@@ -10,16 +10,16 @@ const commonConfig = {
     filename: 'bundle.js',
   },
   resolve: {
-    extensions: ['.ts', '.js']
+    extensions: ['.js', '.ts'],
   },
   module: {
-    rules: [ 
+    rules: [
       {
         test: /\.ts$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader'
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
