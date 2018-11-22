@@ -17,9 +17,16 @@ const commonConfig = {
       {
         test: /\.ts$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        use: [
+          {
+            loader: 'babel-loader',
+          },
+          'angular2-template-loader',
+        ],
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader',
       },
       {
         test: /\.(ttf|otf|eot|woff(2)?)(\?[a-z0-9]+)?$/,
